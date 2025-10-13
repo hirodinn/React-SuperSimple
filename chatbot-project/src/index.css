@@ -1,0 +1,11 @@
+/*we move the general css to index.css*/
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  overflow: hidden;
+  font-family: Arial;
+  margin: 0;
+  padding: 0;
+}

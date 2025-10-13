@@ -1,0 +1,35 @@
+.message-container {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+.message-container p {
+  width: fit-content;
+  padding: 15px 20px;
+  background-color: rgb(233, 233, 233);
+  margin: 0 10px;
+  font-size: 19px;
+  border-radius: 17px;
+  max-width: 300px;
+}
+.message-container p span {
+  font-size: 10px;
+}
+.chat-message-profile {
+  width: 45px;
+}
+
+.left {
+  align-self: flex-start;
+}
+.right {
+  align-self: flex-end;
+}
+
+.loadingGif {
+  background-color: rgb(233, 233, 233);
+  width: 100px;
+  padding: 5px 20px;
+  margin: 0 10px;
+  border-radius: 17px;
+}

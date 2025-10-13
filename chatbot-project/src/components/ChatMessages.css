@@ -1,0 +1,17 @@
+.messages-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  display: flex;
+  flex-direction: column;
+}
+.messgaes-container::-webkit-scrollbar {
+  display: none;
+}
+
+.initial-message {
+  color: rgb(160, 160, 160);
+  text-align: center;
+}

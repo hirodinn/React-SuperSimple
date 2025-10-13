@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <style>
+    /* .button {
+      background-color: rgb(25, 135, 84);
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .red {
+      background-color: rgb(220, 53, 69);
+    } */
+
+    /* form {
+      width: fit-content;
+    }
+    .input {
+      display: block;
+      margin: 8px 0;
+      padding: 7px 0;
+      padding-left: 10px;
+      width: 100%;
+    }
+    .button {
+      padding: 7px 15px;
+      margin-right: 10px;
+      border: none;
+      color: white;
+      background-color: rgb(0, 123, 255);
+      border-radius: 6px;
+    } */
+  </style>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+    <script type="text/babel">
+      /*
+        function App() {
+          const [isOn, setIsOn] = React.useState(true);
+
+          function changeState() {
+            const temp = !isOn;
+            setIsOn(temp);
+          }
+
+          return (
+            <button
+              className={isOn ? "button green" : "button red"}
+              onClick={changeState}
+            >
+              {isOn ? "ON" : "OFF"}
+            </button>
+          );
+        }
+      */
+      /*
+        function App() {
+          return (
+            <form>
+              <h2>Hello, welcome to my website</h2>
+              <input type="email" className="input" placeholder="Email" />
+              <input type="password" className="input" placeholder="Password" />
+              <button className="button">Login</button>
+              <button className="button">Sign up</button>
+            </form>
+          );
+        } */
+
+      /*
+      function App() {
+        const [show, setShow] = React.useState(false);
+        function hideInput() {
+          const temp = !show;
+          setShow(temp);
+        }
+        return (
+          <>
+            <input type={show ? "text" : "password"} placeholder="Password" />
+            <button onClick={hideInput}>{show ? "Hide" : "Show"}</button>
+          </>
+        );
+      }
+      */
+      /*
+      function App() {
+        const [time, setTime] = React.useState(dayjs().format("HH:mm:ss"));
+        React.useEffect(() => {
+          setInterval(() => {
+            const current = dayjs().format("HH:mm:ss");
+            setTime(current);
+          }, 1000);
+        }, []);
+        return <p>Current time: {time}</p>;
+      }
+        */
+      function App() {
+        const [counter, setCounter] = React.useState(0);
+        const [word, setWord] = React.useState("time");
+        const buttonRef = React.useRef(null);
+        const intervalRef = React.useRef(null);
+
+        function reset() {
+          setCounter(0);
+          setWord("time");
+          if (intervalRef.current) {
+            clearInterval(intervalRef.current);
+            intervalRef.current = null;
+          }
+        }
+
+        function increment() {
+          setCounter((prev) => {
+            const newCount = prev + 1;
+            if (newCount > 1) setWord("Times");
+            return newCount;
+          });
+        }
+
+        function startAuto() {
+          if (intervalRef.current) return; // prevent multiple intervals
+          intervalRef.current = setInterval(() => {
+            console.log("running");
+            const buttonElem = buttonRef.current;
+            if (buttonElem) buttonElem.click();
+          }, 1000);
+        }
+
+        return (
+          <>
+            <button ref={buttonRef} onClick={increment}>
+              Clicked {counter} {word}
+            </button>
+            <button onClick={reset}>Reset</button>
+            <button onClick={startAuto}>Auto Click</button>
+          </>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
