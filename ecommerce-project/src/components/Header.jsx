@@ -1,3 +1,4 @@
+import "../pages/header.css";
 export default function Header() {
   return (
     <>
