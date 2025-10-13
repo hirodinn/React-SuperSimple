@@ -1,11 +1,16 @@
-import "./Checkout/CheckoutPage.css";
-import "./Checkout/CheckoutPage-header.css";
-import Header from "../components/Header";
+import "./CheckoutPage.css";
+import CheckoutHeader from "./CheckoutHeader";
+
 export function CheckoutPage() {
   return (
     <>
+      <link
+        rel="icon"
+        type="image/svg+xml"
+        href="/src/assets/assets/cart-favicon.png"
+      />
       <title>Checkout</title>
-      <Header />
+      <CheckoutHeader />
       <div className="checkout-page">
         <div className="page-title">Review your order</div>
 
