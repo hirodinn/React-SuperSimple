@@ -10,7 +10,6 @@ export function HomePage({ cart }) {
       setProducts(response.data);
     });
   }, []);
-  console.log(cart);
   return (
     <>
       <link
