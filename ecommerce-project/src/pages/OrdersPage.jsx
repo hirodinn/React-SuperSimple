@@ -1,6 +1,6 @@
 import axios from "axios";
 import dayjs from "dayjs";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router";
 import Header from "../components/Header";
 import formatMoney from "../utils/money.js";
@@ -27,7 +27,7 @@ export function OrdersPage({ cart }) {
         <div className="orders-grid">
           {orders.map((order) => {
             return (
-              <div className="order-container">
+              <div key={order.id} className="order-container">
                 <div className="order-header">
                   <div className="order-header-left-section">
                     <div className="order-date">
@@ -48,7 +48,7 @@ export function OrdersPage({ cart }) {
                 <div className="order-details-grid">
                   {order.products.map((orderProduct) => {
                     return (
-                      <>
+                      <Fragment key={orderProduct.id}>
                         <div className="product-image-container">
                           <img src={orderProduct.product.image} />
                         </div>
@@ -84,7 +84,7 @@ export function OrdersPage({ cart }) {
                             </button>
                           </Link>
                         </div>
-                      </>
+                      </Fragment>
                     );
                   })}
                 </div>
