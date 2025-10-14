@@ -29,6 +29,7 @@ export function CheckoutDeliveryOptions({
               checked={
                 cartItem.deliveryOptionId === deliveryOption.id ? true : false
               }
+              onChange={() => {}}
               className="delivery-option-input"
               name={`delivery-option-${cartItem.productId}`}
             />
