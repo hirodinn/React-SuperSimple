@@ -5,7 +5,6 @@ export function CheckoutDeliveryOptions({
   cartItem,
   deliveryOptions,
   loadCart,
-  loadPaymentSummary,
 }) {
   return (
     <div className="delivery-options">
@@ -16,7 +15,6 @@ export function CheckoutDeliveryOptions({
             deliveryOptionId: deliveryOption.id,
           });
           await loadCart();
-          await loadPaymentSummary();
         };
         return (
           <div

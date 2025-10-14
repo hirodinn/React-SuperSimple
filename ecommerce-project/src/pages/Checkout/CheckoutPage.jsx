@@ -14,14 +14,17 @@ export function CheckoutPage({ cart, loadCart }) {
         "/api/delivery-options?expand=estimatedDeliveryTime"
       );
       setDeliveryOptions(response.data);
-      await loadPaymentSummary();
     };
     fetchCheckoutData();
   }, []);
-  const loadPaymentSummary = async () => {
-    const response = await axios.get("/api/payment-summary");
-    setPaymentSummary(response.data);
-  };
+  useEffect(() => {
+    const loadPaymentSummary = async () => {
+      const response = await axios.get("/api/payment-summary");
+      setPaymentSummary(response.data);
+    };
+    loadPaymentSummary();
+  }, [cart]);
+
   return (
     <>
       <link
@@ -40,7 +43,6 @@ export function CheckoutPage({ cart, loadCart }) {
             cart={cart}
             deliveryOptions={deliveryOptions}
             loadCart={loadCart}
-            loadPaymentSummary={loadPaymentSummary}
           />
 
           {paymentSummary && (
