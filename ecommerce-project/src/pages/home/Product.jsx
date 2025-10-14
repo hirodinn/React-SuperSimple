@@ -1,21 +1,19 @@
 import axios from "axios";
 import formatMoney from "../../utils/money";
-import { useRef, useState } from "react";
+import { useState } from "react";
 export function Product({ product, loadCart }) {
   const [quantity, setQuantity] = useState(1);
-  const addedReference = useRef(null);
+  const [added, setAdded] = useState(false);
   const addToCart = async () => {
     await axios.post("/api/cart-items", {
       productId: product.id,
       quantity,
     });
     await loadCart();
-    if (addedReference.current) {
-      addedReference.current.classList.add("visible");
-      setTimeout(() => {
-        addedReference.current.classList.remove("visible");
-      }, 1200);
-    }
+    setAdded(true);
+    setTimeout(() => {
+      setAdded(false);
+    }, 1200);
   };
   const selectQuantity = (event) => {
     const quantitySelected = Number(event.target.value);
@@ -58,7 +56,7 @@ export function Product({ product, loadCart }) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart" ref={addedReference}>
+      <div className={`added-to-cart ${added && "visible"}`}>
         <img src="images/icons/checkmark.png" />
         Added
       </div>
