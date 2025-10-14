@@ -1,9 +1,10 @@
 import dayjs from "dayjs";
 import { Link } from "react-router";
 import { Fragment } from "react";
-export function OrderProduct({ orderProduct }) {
+export function OrderProduct({ orderProduct, orderId }) {
+  console.log(orderId, orderProduct.productId);
   return (
-    <Fragment key={orderProduct.id}>
+    <Fragment key={orderProduct.productId}>
       <div className="product-image-container">
         <img src={orderProduct.product.image} />
       </div>
@@ -24,7 +25,7 @@ export function OrderProduct({ orderProduct }) {
       </div>
 
       <div className="product-actions">
-        <Link to="/tracking">
+        <Link to={`/tracking/${orderId}/${orderProduct.productId}`}>
           <button className="track-package-button button-secondary">
             Track package
           </button>

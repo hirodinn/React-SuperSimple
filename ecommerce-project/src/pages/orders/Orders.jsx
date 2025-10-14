@@ -24,7 +24,11 @@ export function Orders({ order }) {
       <div className="order-details-grid">
         {order.products.map((orderProduct) => {
           return (
-            <OrderProduct orderProduct={orderProduct} key={orderProduct.id} />
+            <OrderProduct
+              orderProduct={orderProduct}
+              key={orderProduct.id}
+              orderId={order.id}
+            />
           );
         })}
       </div>
