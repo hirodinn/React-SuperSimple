@@ -207,3 +207,7 @@
   margin-top: 20px;
   margin-bottom: 19px;
 }
+
+input[type="radio"]:focus {
+  outline: none;
+}
