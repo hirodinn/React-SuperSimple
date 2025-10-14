@@ -2,7 +2,6 @@ import dayjs from "dayjs";
 import { Link } from "react-router";
 import { Fragment } from "react";
 export function OrderProduct({ orderProduct, orderId }) {
-  console.log(orderId, orderProduct.productId);
   return (
     <Fragment key={orderProduct.productId}>
       <div className="product-image-container">

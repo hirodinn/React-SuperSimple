@@ -25,6 +25,7 @@ export function TrackingPage({ cart }) {
           orderProduct={order.products.find((product) => {
             return product.productId === productId;
           })}
+          order={order}
         />
       )}
     </>
