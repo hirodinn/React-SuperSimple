@@ -11,9 +11,11 @@ import PageNotFound from "./pages/PageNotFound";
 function App() {
   const [cart, setCart] = useState([]);
   useEffect(() => {
-    axios.get("/api/cart-items?expand=product").then((response) => {
+    const getCartItem = async () => {
+      const response = await axios.get("/api/cart-items?expand=product");
       setCart(response.data);
-    });
+    };
+    getCartItem();
   }, []);
   return (
     <Routes>
