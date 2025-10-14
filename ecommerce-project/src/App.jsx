@@ -3,7 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { HomePage } from "./pages/home/HomePage";
 import { CheckoutPage } from "./pages/Checkout/CheckoutPage";
-import { OrdersPage } from "./pages/OrdersPage";
+import { OrdersPage } from "./pages/orders/OrdersPage";
 import "./App.css";
 import { TrackingPage } from "./pages/TrackingPage";
 import PageNotFound from "./pages/PageNotFound";
