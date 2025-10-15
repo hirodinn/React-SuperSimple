@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Header from "../../components/Header.jsx";
 import "./OrdersPage.css";
 import { Orders } from "./Orders.jsx";
-export function OrdersPage({ cart }) {
+export function OrdersPage({ cart, loadCart }) {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     const fetchOrdersData = async () => {
@@ -26,7 +26,7 @@ export function OrdersPage({ cart }) {
 
         <div className="orders-grid">
           {orders.map((order) => {
-            return <Orders order={order} key={order.id} />;
+            return <Orders order={order} key={order.id} loadCart={loadCart} />;
           })}
         </div>
       </div>

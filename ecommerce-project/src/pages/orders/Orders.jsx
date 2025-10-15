@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
 import formatMoney from "../../utils/money";
 import { OrderProduct } from "./OrderProduct";
-export function Orders({ order }) {
+export function Orders({ order, loadCart }) {
   return (
     <div className="order-container">
       <div className="order-header">
@@ -28,6 +28,7 @@ export function Orders({ order }) {
               orderProduct={orderProduct}
               key={orderProduct.id}
               orderId={order.id}
+              loadCart={loadCart}
             />
           );
         })}
