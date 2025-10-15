@@ -20,7 +20,7 @@ export function HomePage({ cart, loadCart }) {
         href="/src/assets/assets/home-favicon.png"
       />
       <title>Ecommerce Project</title>
-      <Header cart={cart} />
+      <Header cart={cart} setProducts={setProducts} />
 
       <div className="home-page">
         <ProductsGrid products={products} loadCart={loadCart} />
