@@ -39,11 +39,19 @@ export function CheckoutPage({ cart, loadCart }) {
         <div className="page-title">Review your order</div>
 
         <div className="checkout-grid">
-          <CheckoutOrderSummary
-            cart={cart}
-            deliveryOptions={deliveryOptions}
-            loadCart={loadCart}
-          />
+          <div className="order-summary">
+            {cart.length > 0 &&
+              cart.map((cartItem) => {
+                return (
+                  <CheckoutOrderSummary
+                    cartItem={cartItem}
+                    deliveryOptions={deliveryOptions}
+                    loadCart={loadCart}
+                    key={cartItem.productId}
+                  />
+                );
+              })}
+          </div>
 
           {paymentSummary && (
             <CheckoutPaymentSummary
