@@ -2,8 +2,7 @@ import { NavLink } from "react-router";
 import { useNavigate } from "react-router";
 import "./header.css";
 import { useState } from "react";
-import axios from "axios";
-export default function Header({ cart, setProducts }) {
+export default function Header({ cart }) {
   let totalQuantity = 0;
   cart.forEach((cartItem) => {
     totalQuantity += cartItem.quantity;
@@ -18,14 +17,14 @@ export default function Header({ cart, setProducts }) {
 
   const searchForProduct = async (event) => {
     if (event.key === "Enter") {
-      const response = await axios.get(
-        `/api/products?search=${searchBarValue}`
-      );
-      setProducts(response.data);
-      navigate("/");
+      if (!searchBarValue.trim()) {
+        navigate("/");
+      } else goto();
     }
   };
-
+  function goto() {
+    navigate(`/?search=${searchBarValue}`);
+  }
   return (
     <>
       <div className="header">
@@ -46,7 +45,7 @@ export default function Header({ cart, setProducts }) {
             onKeyDown={searchForProduct}
           />
 
-          <button className="search-button">
+          <button className="search-button" onClick={goto}>
             <img className="search-icon" src="images/icons/search-icon.png" />
           </button>
         </div>
